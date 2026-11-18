@@ -1,0 +1,24 @@
+/* A stylesheet with no undefined variables — every
+   var(--name) resolves to a --name defined here. */
+:root {
+  --brand: #2563eb;
+  --ink: #1f2937;
+}
+
+body {
+  color: var(--ink);
+  background: var(--brand);
+}
+
+.card {
+  /* A fallback counts as defined: the author already
+     handled the missing case. */
+  border-color: var(--accent, #ccc);
+  padding: 1rem;
+}
+
+@media (max-width: 600px) {
+  .card {
+    color: var(--ink);
+  }
+}

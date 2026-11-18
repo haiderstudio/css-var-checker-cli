@@ -1,0 +1,14 @@
+/* Two undefined variable references: --missing and
+   --typo are used but never defined. --brand is fine. */
+:root {
+  --brand: #2563eb;
+}
+
+body {
+  color: var(--brand);
+  background: var(--missing);
+}
+
+.sidebar {
+  border-color: var(--typo);
+}

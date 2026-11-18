@@ -1,0 +1,21 @@
+/* var() inside a comment or a string is not a real
+   reference, and a fallback counts as defined. */
+:root {
+  --brand: #2563eb;
+  --spaced : #111;
+}
+
+/* This comment mentions var(--ghost) — it is not code. */
+.note::before {
+  content: "var(--ghost)";
+  color: var(--also-ghost, red);
+  border-color: var(--brand);
+  background: var(--spaced);
+}
+
+/* A class name that looks like a definition is not one:
+   .a--brand:hover holds no --brand definition, and the
+   reference below resolves to the :root definition. */
+.a--brand:hover {
+  color: var(--brand);
+}
